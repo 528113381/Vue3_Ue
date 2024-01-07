@@ -66,7 +66,111 @@ const router = createRouter({
           component: () => import('@/views/Notify/index.vue')
         }
       ]
-    }
+    },
+    {
+      path: '/user/updatename',
+      name: 'updatename',
+      meta: {
+        title: '修改名称'
+      },
+      component: () => import('@/views/UpdateName/index.vue')
+    },
+    {
+      path: '/user/collection',
+      name: 'collection',
+      meta: {
+        title: '收藏'
+      },
+      component: () => import('@/views/Collection/index.vue')
+    },
+    {
+      path: '/user/like',
+      name: 'like',
+      meta: {
+        title: '关注'
+      },
+      component: () => import('@/views/Like/index.vue')
+    },
+    {
+      path: '/user/score',
+      name: 'score',
+      meta: {
+        title: '积分'
+      },
+      component: () => import('@/views/Score/index.vue')
+    },
+    {
+      path: '/user/coupon',
+      name: 'coupon',
+      meta: {
+        title: '优惠券'
+      },
+      component: () => import('@/views/Coupon/index.vue')
+    },
+    {
+      path: '/user/consult',
+      name: 'consult',
+      meta: {
+        title: '我的问诊'
+      },
+      component: () => import('@/views/Consult/index.vue')
+    },
+    {
+      path: '/user/prescription',
+      name: 'prescription',
+      meta: {
+        title: '我的处方'
+      },
+      component: () => import('@/views/Prescription/index.vue')
+    },
+    {
+      path: '/user/family',
+      name: 'family',
+      meta: {
+        title: '家庭档案'
+      },
+      component: () => import('@/views/Family/index.vue')
+    },
+    {
+      path: '/user/address',
+      name: 'address',
+      meta: {
+        title: '地址管理'
+      },
+      component: () => import('@/views/Address/index.vue')
+    },
+    {
+      path: '/user/evaluate',
+      name: 'evaluate',
+      meta: {
+        title: '我的评价'
+      },
+      component: () => import('@/views/Evaluate/index.vue')
+    },
+    {
+      path: '/user/contact',
+      name: 'contact',
+      meta: {
+        title: '官方客服'
+      },
+      component: () => import('@/views/Contact/index.vue')
+    },
+    {
+      path: '/user/settings',
+      name: 'settings',
+      meta: {
+        title: '设置'
+      },
+      component: () => import('@/views/Settings/index.vue')
+    },
+    {
+      path: '/user/order',
+      name: 'order',
+      meta: {
+        title: '全部订单'
+      },
+      component: () => import('@/views/Order/index.vue')
+    },
   ]
 })
 // 1.全局路由守卫

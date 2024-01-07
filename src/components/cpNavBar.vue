@@ -1,27 +1,51 @@
 <template>
-  <van-nav-bar 
-  left-arrow
-  @click-left="onClickLeft"
-  :right-text="rtext"
-  @click-right="onclickRight" />
+  <van-nav-bar
+    left-arrow
+    :right-text="rtext"
+    :title="title"
+    @click-left="onClickLeft"
+    @click-right="onclickRight"
+  />
 </template>
 
 <script setup lang="ts">
-import {useRoute,useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 
-defineProps<{
-  rtext: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    rtext?: string
+    title?: string
+    leftfn?: () => void
+    rightfn?: () => void
+  }>(),
+  {
+    rtext: '',
+    title: ''
+  }
+)
 
-const route = useRoute()
+
 const router = useRouter()
-console.log(route);
 
-const onClickLeft  = ()=>{
-  router.back()
+
+// 左侧按钮点击事件
+const onClickLeft = () => {
+  // 如果传递了左侧点击事件触发的函数
+  if (props.leftfn) {
+    props.leftfn()
+  } else {
+    router.back()
+  }
 }
-const onclickRight = ()=>{
-  router.push('/register')
+
+//右侧按钮点击事件
+const onclickRight = () => {
+  if (props.rightfn) {
+    props.rightfn()
+  } else {
+    router.push('/register')
+  }
+
 }
 </script>
 

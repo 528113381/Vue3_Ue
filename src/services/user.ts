@@ -11,3 +11,7 @@ export const getCodeRequest = (obj:any)=>{
 export const loginByCodeRequest = (obj:any)=>{
   return request('/login','POST',obj)
 }
+
+export const getUserInfoRequest = ()=>{
+  return request('/patient/myUser','GET')
+}

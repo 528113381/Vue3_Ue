@@ -15,7 +15,7 @@ instance.interceptors.request.use(
   (config) => {
     // 携带token
     const store = userStore()
-    if(store.user?.token){
+    if (store.user?.token) {
       config.headers.Authorization = `Bearer ${store.user.token}`
     }
     return config
@@ -28,10 +28,10 @@ instance.interceptors.response.use(
   // 请求成功
   (res) => {
     // 业务成功
-    if(res.data.code === 10000){
+    if (res.data.code === 10000) {
       // 脱壳
       return res.data
-    }else{
+    } else {
       // 业务失败
       showToast(res.data.message || '请求失败')
       return Promise.reject(res)
@@ -40,7 +40,7 @@ instance.interceptors.response.use(
   // 请求失败
   (err) => {
     // 处理401 token失效问题
-    if(err.response?.status === 401){
+    if (err.response?.status === 401) {
       const store = userStore()
       // 将token和本地存储数据清空
       store.delUser()
@@ -54,11 +54,18 @@ instance.interceptors.response.use(
 
 export default instance
 
-export const request = (url:string,method:string,obj:any)=>{
+export const request = (url: string, method: string, obj?: any) => {
+  if(!obj){
+    return instance.request({
+      url,
+      method
+    })
+  }
+
   return instance.request({
     url,
     method,
     // toUpperCase() 转换成大写
-    [method.toUpperCase() === 'GET' ? 'params' : 'data'] : obj
+    [method.toUpperCase() === 'GET' ? 'params' : 'data']: obj
   })
 }
