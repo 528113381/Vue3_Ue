@@ -31,9 +31,7 @@ const emits = defineEmits(['update:modelValue'])
 
 const genderChoose = (item: any) => {
   console.log(item);
-  
   emits('update:modelValue',item.id)
-
 }
 
 

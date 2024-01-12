@@ -1,24 +1,29 @@
 <template>
   <div class="doctor-info">
     <div class="doctor-info-1">
-      <div class="di1-image"></div>
+      <div class="di1-image">
+        <img v-if="item.avatar" :src="item.avatar" alt="" />
+      </div>
     </div>
     <div class="doctor-info-2">
       <div class="doctor-info-2-top">
-        <span class="name">王医生</span><span class="info">内分泌科 | 主任医师</span>
+        <span class="name">{{ item.name }}</span><span class="info">{{ item.depName }} | {{ item.positionalTitles }}</span>
       </div>
       <div class="doctor-info-2-bottom">
-        <van-tag color="#677fff" class="tap" >三甲</van-tag><span class="hospital">积水潭医院</span>
+        <van-tag color="#677fff" class="tap" v-if="item.gradeName">{{ item.gradeName }}</van-tag><span class="hospital">{{ item.hospitalName }}</span>
       </div>
     </div>
     <div class="doctor-info-3">
-      <div class="di3-btn">进入咨询</div>
+      <div class="di3-btn">{{ name || '进入咨询' }}</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+  item?: any
+  name?: string
+}>()
 </script>
 
 <style lang="scss" scoped>
@@ -26,8 +31,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-
+  img {
+      width: 100%;
+    }
   &-1 {
     width: 50px;
   }
@@ -58,12 +64,15 @@
       display: flex;
       .hospital{
         font-size: 12px;
-        margin-left: 4px;;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 150px;
         
       }
       .tap{
         font-size: 10px;
-       
+        margin-right: 4px;
       }
     }
   }

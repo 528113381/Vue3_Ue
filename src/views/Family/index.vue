@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="pli-right">
-          <cp-icon name="user-edit"></cp-icon>
+          <cp-icon name="user-edit" @click="editPatient(item)" ></cp-icon>
         </div>
       </div>
 
@@ -49,20 +49,23 @@
 
   </div>
 
-  <PatientDetail ref="popupRef" />
+  <PatientDetail ref="popupRef" @addSuccessEvent="getPatientList"
+  :currentItem="currentItem" />
+
+  
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getPatientListRequest } from '@/services/patient'
 import PatientDetail from './PatientDetail.vue'
+import { showToast } from 'vant';
 const patientList = ref<any[]>([])
-
+const currentItem = ref<any>({})
 const popupRef = ref<any>(null)
 
 const getPatientList = async () => {
   const res = await getPatientListRequest()
-  console.log(res);
 
   patientList.value = res.data
 }
@@ -70,8 +73,19 @@ getPatientList()
 
 // 显示弹出层
 const showPoppup = () => {
+  if (patientList.value.length === 6) {
+    showToast('患者信息最多添加6个')
+    return
+  }
+  currentItem.value ={}
   popupRef.value.openPopup()
 }
+// 编辑
+const editPatient = (item:any) => {
+  currentItem.value = item
+  popupRef.value.openPopup()
+}
+
 
 </script>
 

@@ -15,3 +15,8 @@ export const loginByCodeRequest = (obj:any)=>{
 export const getUserInfoRequest = ()=>{
   return request('/patient/myUser','GET')
 }
+// 关注各种场景的通用接口 一共有四种类型
+// topic百科话题,knowledge百科文章,doc医生,disease疾病
+export const likeRequest = (obj: any) => {
+  return request('/like', 'POST', obj)
+}

@@ -171,6 +171,14 @@ const router = createRouter({
       },
       component: () => import('@/views/Order/index.vue')
     },
+    {
+      path: '/home/recomment-follow',
+      name: 'recomment-follow',
+      meta: {
+        title: '推荐关注'
+      },
+      component: () => import('@/views/RecommentFollow/index.vue')
+    },
   ]
 })
 // 1.全局路由守卫

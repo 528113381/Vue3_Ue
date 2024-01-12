@@ -5,9 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vueuse/core':
+    specifier: ^10.7.1
+    version: 10.7.1(vue@3.4.3)
   axios:
     specifier: ^1.6.3
     version: 1.6.3
+  idcard:
+    specifier: ^4.1.1
+    version: 4.1.1
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -607,6 +613,10 @@ packages:
       '@types/node': 18.19.4
     dev: true
 
+  /@types/web-bluetooth@0.0.20:
+    resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
+    dev: false
+
   /@typescript-eslint/eslint-plugin@6.16.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)(typescript@5.3.3):
     resolution: {integrity: sha512-O5f7Kv5o4dLWQtPX4ywPPa+v9G+1q1x8mz0Kr0pXUtKsevo+gIJHLkGc8RxaZWtP8RrhwhSNIWThnW42K9/0rQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
@@ -915,6 +925,31 @@ packages:
   /@vue/tsconfig@0.5.1:
     resolution: {integrity: sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==}
     dev: true
+
+  /@vueuse/core@10.7.1(vue@3.4.3):
+    resolution: {integrity: sha512-74mWHlaesJSWGp1ihg76vAnfVq9NTv1YT0SYhAQ6zwFNdBkkP+CKKJmVOEHcdSnLXCXYiL5e7MaewblfiYLP7g==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.20
+      '@vueuse/metadata': 10.7.1
+      '@vueuse/shared': 10.7.1(vue@3.4.3)
+      vue-demi: 0.14.6(vue@3.4.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/metadata@10.7.1:
+    resolution: {integrity: sha512-jX8MbX5UX067DYVsbtrmKn6eG6KMcXxLRLlurGkZku5ZYT3vxgBjui2zajvUZ18QLIjrgBkFRsu7CqTAg18QFw==}
+    dev: false
+
+  /@vueuse/shared@10.7.1(vue@3.4.3):
+    resolution: {integrity: sha512-v0jbRR31LSgRY/C5i5X279A/WQjD6/JsMzGa+eqt658oJ75IvQXAeONmwvEMrvJQKnRElq/frzBR7fhmWY5uLw==}
+    dependencies:
+      vue-demi: 0.14.6(vue@3.4.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
 
   /acorn-jsx@5.3.2(acorn@8.11.3):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1977,6 +2012,10 @@ packages:
       inherits: 2.0.4
       readable-stream: 3.6.2
     dev: true
+
+  /idcard@4.1.1:
+    resolution: {integrity: sha512-IfuWI1bI/IohizSggg8xxXdJ3qID2yW6eUlHf3XEmB0+iBEab8BQky9lU2UVLv7BjmDxYbA8kjXTR3G3l8yj5g==}
+    dev: false
 
   /ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}

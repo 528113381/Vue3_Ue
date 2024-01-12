@@ -33,7 +33,7 @@
     <div class="user-consult" v-if="userInfo.consultationInfo?.length === 0">
       <div class="swipeTitle"> 问诊中</div>
       <van-swipe class="my-swipe" :autoplay="5000" indicator-color="#16c2a3">
-        <van-swipe-item v-for="item in 5" :key="item">
+        <van-swipe-item v-for="item in []" :key="item">
           <doctor-info />
         </van-swipe-item>
       </van-swipe>
@@ -119,22 +119,22 @@ const getUserInfo = async () => {
 }
 getUserInfo()
 const updateName = () =>{
-  router.push('user/updatename')
+  router.push('/user/updatename')
 }
 const goToCollection = () =>{
-  router.push('user/collection')
+  router.push('/user/collection')
 }
 const goToLike = () =>{
-  router.push('user/like')
+  router.push('/user/like')
 }
 const goToScore = () =>{
-  router.push('user/score')
+  router.push('/user/score')
 }
 const goToCoupon = () =>{
-  router.push('user/coupon')
+  router.push('/user/coupon')
 }
 const goToOrder = () =>{
-  router.push('user/order')
+  router.push('/user/order')
 }
 </script>
 <style lang="scss" scoped>
