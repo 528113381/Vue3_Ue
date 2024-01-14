@@ -9,3 +9,4 @@ export default pinia
 // 按需导出 可以有多个
 // export * 统一导出
 export * from './modules/user'
+export * from './modules/consult'

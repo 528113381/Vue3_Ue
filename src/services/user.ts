@@ -20,3 +20,8 @@ export const getUserInfoRequest = ()=>{
 export const likeRequest = (obj: any) => {
   return request('/like', 'POST', obj)
 }
+
+// 上传图片
+export const uploadRequest = (obj: any) => {
+  return request('/upload', 'POST', obj)
+}

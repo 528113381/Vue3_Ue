@@ -6,8 +6,8 @@
         v-for="item in list"
         :key="item.id"
         @click="genderChoose(item)"
-        :class="{ active: modelValue === item.id }"
-        >
+        :class="{ active: modelValue === item.id, mini: item.name.length >1 }"
+      >
         {{ item.name }}
       </div>
     </div>
@@ -17,13 +17,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const list = ref<any[]>([
-  { id: 1, name: '男' },
-  { id: 0, name: '女' }
-])
+
+
+// const list = ref<any[]>([
+//   { id: 1, name: '男' },
+//   { id: 0, name: '女' }
+// ])
 
 const props = defineProps<{
-  modelValue: number
+  modelValue: number | undefined,
+  list: any[]
 }>()
 console.log(props);
 
@@ -31,7 +34,7 @@ const emits = defineEmits(['update:modelValue'])
 
 const genderChoose = (item: any) => {
   console.log(item);
-  emits('update:modelValue',item.id)
+  emits('update:modelValue', item.id)
 }
 
 
@@ -43,15 +46,22 @@ const genderChoose = (item: any) => {
 
   .radio-warp {
     display: flex;
+    flex-wrap: wrap;
 
     &-item {
       font-size: 13px;
       background-color: var(--cp-bg);
       border-radius: 4px;
-      padding: 7px 21px;
+      padding: 8px 21px;
       margin-right: 12px;
       line-height: 1em;
       cursor: pointer;
+
+      &.mini {
+        padding: 9px 14px;
+        border-radius: 5px;
+        margin-bottom: 4px;
+      }
 
       &.active {
         border: 1px solid var(--cp-primary);

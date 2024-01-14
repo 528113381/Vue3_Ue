@@ -11,7 +11,10 @@
         :leftfn="closePopup"
         :rightfn="onSubmitbth"
       />
-      <van-form @submit="onSubmit" ref="submitRef">
+      <van-form
+        @submit="onSubmit"
+        ref="submitRef"
+      >
         <van-cell-group inset>
           <van-field
             v-model="formDetail.name"
@@ -32,7 +35,13 @@
             label="性别"
           >
             <template #input>
-              <cp-radio-btn v-model="formDetail.gender" />
+              <cp-radio-btn
+                :list="[
+                  { id: 1, name: '男' },
+                  { id: 0, name: '女' }
+                ]"
+                v-model="formDetail.gender"
+              />
             </template>
           </van-field>
           <van-field
@@ -56,7 +65,7 @@
         />
       </van-action-bar>
     </van-popup>
-    
+
 
   </div>
   <!-- <test-model :msg="msg" @update="msg = $event"></test-model> -->
@@ -171,7 +180,7 @@ const onSubmit = async () => {
   }
 }
 
-const onSubmitbth = ()=>{
+const onSubmitbth = () => {
   submitRef.value.submit()
 }
 

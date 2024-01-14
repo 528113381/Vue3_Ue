@@ -1,11 +1,12 @@
 <template>
-  <van-nav-bar
-    left-arrow
-    :right-text="rtext"
-    :title="title"
-    @click-left="onClickLeft"
-    @click-right="onclickRight"
-  />
+    <van-nav-bar
+      left-arrow
+      :right-text="rtext"
+      :title="title"
+      @click-left="onClickLeft"
+      @click-right="onclickRight"
+      :class="{ save: title === '修改昵称' }"
+    />
 </template>
 
 <script setup lang="ts">
@@ -47,6 +48,7 @@ const onclickRight = () => {
   }
 
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -59,4 +61,17 @@ const onclickRight = () => {
 :deep(.van-nav-bar__text) {
   color: var(--cp-primary);
 }
+
+.save {
+  :deep(.van-nav-bar__text) {
+    color: var(--cp-primary);
+    border: 1px solid var(--cp-primary);
+    border-radius: 15px;
+    width: 50px;
+    height: 30px;
+    background-color: #eaf8f6;
+    line-height: 30px;
+  }
+}
 </style>
+

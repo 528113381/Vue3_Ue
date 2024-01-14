@@ -179,6 +179,47 @@ const router = createRouter({
       },
       component: () => import('@/views/RecommentFollow/index.vue')
     },
+    {
+      path: '/consult/fast',
+      name: 'fast',
+      meta: {
+        title: '极速问诊'
+      },
+      component: () => import('@/views/Consult/ConsultFast.vue')
+    },
+    {
+      path: '/consult/dep',
+      name: 'dep',
+      meta: {
+        title: '科室选择'
+      },
+      component: () => import('@/views/Consult/ConsultDep.vue')
+    },
+    {
+      path: '/consult/illness',
+      name: 'illness',
+      meta: {
+        title: '病情描述'
+      },
+      component: () => import('@/views/Consult/Consultillness.vue')
+    },
+    {
+      path: '/consult/pay',
+      name: 'pay',
+      meta: {
+        title: '支付'
+      },
+      component: () => import('@/views/Consult/ConsultPay.vue')
+    },
+    {
+      path: '/room',
+      name: 'room',
+      meta: {
+        title: '问诊室'
+      },
+      component: () => import('@/views/Room/index.vue')
+    }
+   
   ]
 })
 // 1.全局路由守卫

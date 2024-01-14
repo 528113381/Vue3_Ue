@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="home-page">
     <!-- 头部 -->
@@ -18,6 +16,7 @@
           <router-link
             to="/"
             class="nav"
+            @click="goToFastPage(1)"
           >
             <cp-icon name="home-doctor"></cp-icon>
             <p class="title">问医生</p>
@@ -28,6 +27,7 @@
           <router-link
             to="/consult/fast"
             class="nav"
+            @click="goToFastPage(2)"
           >
             <cp-icon name="home-graphic"></cp-icon>
             <p class="title">极速问诊</p>
@@ -38,6 +38,7 @@
           <router-link
             to="/"
             class="nav"
+            @click="goToFastPage(3)"
           >
             <cp-icon name="home-prescribe"></cp-icon>
             <p class="title">开药门诊</p>
@@ -50,6 +51,7 @@
           <router-link
             to="/"
             class="nav min"
+           
           >
             <cp-icon name="home-order"></cp-icon>
             <p class="title">药品订单</p>
@@ -119,6 +121,17 @@
     </van-tabs>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useConsult } from '@/stores'
+import type { ConsultType } from '@/enums/index.ts'
+const store = useConsult()
+const goToFastPage = (value: ConsultType) => {
+  // 这里就在pinia里面储存 就诊类型
+  store.setType(value)
+}
+
+</script>
 
 <style lang="scss" scoped>
 .home-page {

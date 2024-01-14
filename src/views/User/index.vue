@@ -136,6 +136,8 @@ const goToCoupon = () =>{
 const goToOrder = () =>{
   router.push('/user/order')
 }
+
+
 </script>
 <style lang="scss" scoped>
 // autoprefixer 插件 自动添加浏览器适配前缀
